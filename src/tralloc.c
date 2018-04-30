@@ -33,8 +33,7 @@
 
 #include "tralloc.h"
 
-static struct trs_vec _trvec = {0};
-static struct trs_vec * trvec = &_trvec;
+static struct trs_vec * trvec = NULL;
 
 static void * _tradd_new_entry (size_t size, void * ptr, const char * file, const char * func, unsigned short line)
 {
@@ -185,4 +184,14 @@ bool _treprint (void)
 bool _trprint (void)
 {
     return _trfprint(stdout);
+}
+
+void _trinit (void)
+{
+    trvec = trs_new();
+}
+
+void _trdeinit (void)
+{
+    trs_free(trvec);
 }

@@ -30,6 +30,8 @@ void test4 (size_t nmemb)
 
 int main (void)
 {
+    trinit();
+
     FILE * outf = fopen("trace.txt", "w");
     outf = (outf == NULL) ?
         stderr :
@@ -42,7 +44,11 @@ int main (void)
         test4(i);
     }
 
-    return trfprint(outf) ?
+    int ret = trfprint(outf) ?
         EXIT_SUCCESS :
         EXIT_FAILURE;
+
+    trdeinit();
+
+    return ret;
 }
