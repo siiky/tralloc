@@ -21,7 +21,7 @@ struct trs {
     void * ptr;
 };
 
-int        trs_eq    (struct trs a, struct trs b);
+int        trs_cmp   (struct trs a, struct trs b);
 struct trs _trs_free (struct trs self);
 struct trs _trs_new  (size_t size, void * ptr, const char * file, const char * func, unsigned short line);
 

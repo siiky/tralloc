@@ -30,8 +30,6 @@ void test4 (size_t nmemb)
 
 int main (void)
 {
-    trinit();
-
     FILE * outf = fopen("trace.txt", "w");
     outf = (outf == NULL) ?
         stderr :

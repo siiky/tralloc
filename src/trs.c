@@ -15,9 +15,9 @@
 
 #include "trs.h"
 
-int trs_eq (struct trs a, struct trs b)
+int trs_cmp (struct trs a, struct trs b)
 {
-    return a.ptr == b.ptr;
+    return a.ptr != b.ptr;
 }
 
 struct trs _trs_free (struct trs self)

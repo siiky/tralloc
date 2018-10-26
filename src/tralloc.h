@@ -28,8 +28,7 @@
  */
 #ifndef TR_TRACE
 
-#    define trinit()   do {} while (0)
-#    define trdeinit() do {} while (0)
+#    define trdeinit() ()
 
 #    define trcalloc  calloc
 #    define trfree    free
@@ -43,8 +42,7 @@
 
 #else
 
-#    define trinit                _trinit
-#    define trdeinit              _trdeinit
+#    define trdeinit()            _trdeinit()
 
 #    define trcalloc(nmemb, size) _trcalloc((nmemb), (size), __FILE__, __func__, __LINE__)
 #    define trfree(ptr)           _trfree((ptr))
@@ -130,11 +128,6 @@ void * _trmalloc (size_t size, const char * file, const char * func, unsigned sh
  *          return either NULL or a pointer passable to `free()`)
  */
 void * _trrealloc (void * ptr, size_t size, const char * file, const char * func, unsigned short line);
-
-/**
- * @brief Initialize the trace structure
- */
-void _trinit (void);
 
 /**
  * @brief Deinitialize the trace structure (this includes free()ing

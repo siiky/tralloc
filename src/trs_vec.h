@@ -6,8 +6,9 @@
  */
 #include "trs.h"
 
-#define VEC_DATA_TYPE    struct trs
-#define VEC_DATA_TYPE_EQ trs_eq
-#define VEC_DTOR         _trs_free
-#define VEC_PREFIX       trs_
+#define VEC_CFG_DATA_TYPE     struct trs
+#define VEC_CFG_DATA_TYPE_CMP trs_cmp
+#define VEC_CFG_DTOR          _trs_free
+#define VEC_CFG_PREFIX        trs_
+#define VEC_CFG_VEC           trs_vec
 #include <utils/vec.h>
